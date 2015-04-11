@@ -6,6 +6,7 @@ d$datetime <- strptime(paste(d$Date, d$Time), format="%e/%m/%Y %H:%M:%S")
 names(d)[length(names(d))] <- "datetime"
 
 # 4
+png(filename="plot4.png", width=480, height=480)
 par(mfrow=c(2,2))
 # (1,1)
 plot(d$datetime, d$Global_active_power, type="l", xlab="", ylab="Global Active Power")
@@ -20,5 +21,4 @@ legend("topright", lty=1, bty="n", col=c("black", "blue", "red"), legend=c("Sub_
 # (2,2)
 with(d, plot(datetime, Global_reactive_power, type="l"))
 
-dev.copy(png, file="plot4.png", width=480, height=480)
 dev.off()
